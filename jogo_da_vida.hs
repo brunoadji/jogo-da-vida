@@ -5,6 +5,14 @@ Tradução dos valores:
     2 -> célula zumbi
 -}
 
+printBoard :: [[Int]] -> IO ()
+printBoard [] =
+    return ()
+
+printBoard (head : tail) = do
+    putStrLn $ unwords $ map show head
+    printBoard tail
+
 -- Verifica se a posição i j pertence ao tabuleiro
 isValidPosition :: Int -> Int -> Int -> Bool
 isValidPosition i j n = 
@@ -98,4 +106,5 @@ main = do
     turnsInput <- getLine
     let n = read turnsInput :: Int
     let result = playTurns n size board
-    print result
+    putStrLn "Tabuleiro resultante:"
+    printBoard result
