@@ -7,7 +7,7 @@ Tradução dos valores:
 
 printBoard :: [[Int]] -> IO ()
 printBoard [] =
-    return ()
+    putStrLn ""
 
 printBoard (head : tail) = do
     putStrLn $ unwords $ map show head
@@ -92,11 +92,14 @@ updateBoard i j n board newBoard =
     
 -- Função que irá rodar uma quantidade n de turnos (iterações)
 -- Recebe n (numero de interações), size (tamanho do tabuleiro) e board (tabuleiro) como parametros e retorna o tabuleiro após as n interações
-playTurns :: Int -> Int -> [[Int]] -> [[Int]]
-playTurns 0 size board = board
+playTurns :: Int -> Int -> [[Int]] -> ([[Int]], Int)
+playTurns 0 size board = (board, 0)
 
 playTurns n size board =
-    playTurns (n-1) size (updateBoard 0 0 size board board)
+    let newBoard = updateBoard 0 0 size board board
+    in if board == newBoard
+        then (board, n)
+        else playTurns (n-1) size newBoard
 
 main :: IO ()
 main = do
@@ -107,4 +110,8 @@ main = do
     let n = read turnsInput :: Int
     let result = playTurns n size board
     putStrLn "Tabuleiro resultante:"
-    printBoard result
+    printBoard (fst result)
+    if (snd result) > 0
+        then
+            putStrLn $ "Tabuleiro estabilizado após " ++ show (n - snd result) ++ " iterações"
+        else putStrLn "Tabuleiro não estabilizou antes de finalizar os turnos"

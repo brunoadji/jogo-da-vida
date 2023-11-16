@@ -4,3 +4,5 @@ Tabuleiro resultante:
 0 1 0 0 0
 0 0 0 0 0
 0 0 0 0 0
+
+Tabuleiro não estabilizou antes de finalizar os turnos
