@@ -5,6 +5,7 @@ Tradução dos valores:
     2 -> célula zumbi
 -}
 
+-- Função que imprime o tabuleiro linha por linha, separando as casas por espaço
 printBoard :: [[Int]] -> IO ()
 printBoard [] =
     putStrLn ""
