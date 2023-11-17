@@ -79,7 +79,7 @@ updateBoard i j n board newBoard =
                 newCell = 
                     case (currCell, neighbor !! 1, neighbor !! 2, (neighbor !! 1 < 2 || neighbor !! 1 > 3), (neighbor !! 2 >= 1)) of
                         (0, 3, _, _, _) -> 1 -- Celula morta e possui 3 celulas vivas adjacentes (ressucita)
-                        (1, _, 1, _, True) -> 2 -- Celula viva e possui pelo menos 1 zumbi adjacente (zumbificação)
+                        (1, _, _, _, True) -> 2 -- Celula viva e possui pelo menos 1 zumbi adjacente (zumbificação)
                         (1, _, 0, True, False) -> 0 -- Celula viva e não possui zumbi adjacente e possui menos que 2 ou mais que 3 vivas adjacentes (morre)
                         (2, 0, _, _, _) -> 0 -- Celula zumbi sem celula viva adjacente (morre)
                         (_, _, _, _, _) -> currCell -- Caso não se encaixe em nenhum caso, ela não mudará
@@ -115,3 +115,9 @@ main = do
         then
             putStrLn $ "Tabuleiro estabilizado após " ++ show (n - snd result) ++ " iterações"
         else putStrLn "Tabuleiro não estabilizou antes de finalizar os turnos"
+    
+    putStrLn "\nLegenda:"
+    putStrLn "0 - Célula morta"
+    putStrLn "1 - Célula viva"
+    putStrLn "2 - Célula zumbi"
+    

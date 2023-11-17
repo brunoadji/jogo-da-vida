@@ -1,11 +1,11 @@
 Tabuleiro resultante:
-2 2 2 2 2
-2 2 2 2 2
-0 2 1 1 0
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
 0 0 0 0 0
 0 0 0 0 0
 
-Tabuleiro não estabilizou antes de finalizar os turnos
+Tabuleiro estabilizado após 3 iterações
 
 Legenda:
 0 - Célula morta

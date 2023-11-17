@@ -1,0 +1,12 @@
+Tabuleiro resultante:
+1 1 0 0
+1 1 0 0
+0 0 0 0
+0 0 0 0
+
+Tabuleiro estabilizado após 2 iterações
+
+Legenda:
+0 - Célula morta
+1 - Célula viva
+2 - Célula zumbi
